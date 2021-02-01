@@ -47,7 +47,6 @@ int user_total_holidays(int category, int days, char sport, char culture) {  //�
     int doubl = 6750;		//двуместный номер
     int suit = 9000;		//студия (апартаменты)
     int number = 4500;
-    int time = 24;
     int price_sport = 500;		//стоимость аренты спортивного инвентаря (лыжи, сноуборд), абонемент на посещение бассейна
     int price_culture = 300;	//стоимость посещения развлекательных мероприятий (экскурсии, концерты)
     int dop_option = 0;
@@ -74,7 +73,7 @@ int user_total_holidays(int category, int days, char sport, char culture) {  //�
                 dop_option += price_culture;
             }
 
-            total = (number + time + price_sport + price_culture) * days;
+            total = (number + dop_option) * days;
         }
         else {
             total = -1; // Некорректная команда
