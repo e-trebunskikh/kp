@@ -78,3 +78,116 @@ TEST (calc, minusDays) {
 
     ASSERT_EQ(-1, actual);
 }
+
+
+TEST (calc, H_oneRoomSport) {
+    int category, days;
+    char sport, culture;
+
+    category = 1;
+    days = 5;
+    sport = 'Y';
+    culture = 'N';
+
+    int actual = user_total_holidays(category, days, sport, culture);
+
+    ASSERT_EQ(25000, actual);
+}
+
+TEST (calc, H_oneRoomCult) {
+    int category, days;
+    char sport, culture;
+
+    category = 1;
+    days = 5;
+    sport = 'N';
+    culture = 'Y';
+
+    int actual = user_total_holidays(category, days, sport, culture);
+
+    ASSERT_EQ(24000, actual);
+}
+
+TEST (calc, H_oneRoomSportCult) {
+    int category, days;
+    char sport, culture;
+
+    category = 1;
+    days = 5;
+    sport = 'Y';
+    culture = 'Y';
+
+    int actual = user_total_holidays(category, days, sport, culture);
+
+    ASSERT_EQ(26500, actual);
+}
+
+TEST (calc, H_oneRoomTest_noService) {
+    int category, days;
+    char sport, culture;
+
+    category = 1;
+    days = 5;
+    sport = 'N';
+    culture = 'N';
+
+    int actual = user_total_holidays(category, days, sport, culture);
+
+    ASSERT_EQ(22500, actual);
+}
+
+TEST (calc, H_noSearchRoom) {
+    int category, days;
+    char sport, culture;
+
+    category = 1000;
+    days = 5;
+    sport = 'N';
+    culture = 'N';
+
+    int actual = user_total_holidays(category, days, sport, culture);
+
+    ASSERT_EQ(-1, actual);
+}
+
+TEST (calc, H_zeroDays) {
+    int category, days;
+    char sport, culture;
+
+    category = 1;
+    days = 0;
+    sport = 'N';
+    culture = 'N';
+
+    int actual = user_total_holidays(category, days, sport, culture);
+
+    ASSERT_EQ(-1, actual);
+}
+
+TEST (calc, H_zeroDaysDop) {
+    int category, days;
+    char sport, culture;
+
+    category = 1;
+    days = 0;
+    sport = 'Y';
+    culture = 'Y';
+
+    int actual = user_total_holidays(category, days, sport, culture);
+
+    ASSERT_EQ(-1, actual);
+}
+
+TEST (calc, H_minusDays) {
+    int category, days;
+    char sport, culture;
+
+    category = 1;
+    days = -1;
+    sport = 'N';
+    culture = 'N';
+
+    int actual = user_total_holidays(category, days, sport, culture);
+
+    ASSERT_EQ(-1, actual);
+}
